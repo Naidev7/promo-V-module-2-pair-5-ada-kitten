@@ -70,3 +70,24 @@ ${kittenThreeDesc}
 /* LLAMAR A LOS li AL ul del html */
 
 catList.innerHTML = kittenOne + kittenTwo + kittenThree;
+
+
+//Filtrando gatitos //
+
+const inputRace = document.querySelector('.input')
+if(inputRace.value === 'siamés' && kittenOneDesc.includes('siamés')){
+  text = 'El gato es siamés'
+}
+
+msg.innerHTML = text;
+
+console.log(
+  `El gatito "${gatito}" 'es de la raza '${
+    sentence.includes(raceSiames) ? 'is' : 'is not'
+  } in the sentence`,
+);
+// Expected output: "The word "fox" is in the sentence"
+
+/*if(inputRace.value.includes('siamés')){
+  
+}*/
