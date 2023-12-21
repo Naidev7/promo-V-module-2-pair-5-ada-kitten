@@ -72,22 +72,53 @@ ${kittenThreeDesc}
 catList.innerHTML = kittenOne + kittenTwo + kittenThree;
 
 
-//Filtrando gatitos //
+//Filtrando gatitos  por descripción//
+const input_search_desc = document.querySelector('.js_in_search_desc');
+const descrSearchText = input_search_desc.value;
 
-const inputRace = document.querySelector('.input')
-if(inputRace.value === 'siamés' && kittenOneDesc.includes('siamés')){
-  text = 'El gato es siamés'
+if (kittenOne.includes(descrSearchText)) {
+  catList.innerHTML = kittenOne
 }
 
-msg.innerHTML = text;
+if (kittenTwo.includes(descrSearchText)) {
+  catList.innerHTML = kittenTwo
+}
 
-console.log(
-  `El gatito "${gatito}" 'es de la raza '${
-    sentence.includes(raceSiames) ? 'is' : 'is not'
-  } in the sentence`,
-);
-// Expected output: "The word "fox" is in the sentence"
+if (kittenThree.includes(descrSearchText)) {
+  catList.innerHTML = kittenThree
+}
 
-/*if(inputRace.value.includes('siamés')){
-  
-}*/
+
+
+////Añadir nuevo gatito////
+
+const btnAdd = document.querySelector(".js-btn-add");
+//declarar constantes del formulario ya que hasta no dar click en el boton no aparece el formularo de nuevo gatito
+
+const inputDesc = document.querySelector('.js-input-desc');
+const inputPhoto = document.querySelector('.js-input-photo');
+const inputName = document.querySelector('.js-input-name');
+const labelMessageError = document.querySelector('.js-label-error');
+
+
+btnAdd.addEventListener('click', (event) => {
+
+  event.preventDefault();
+  console.log(event);
+
+  const valueDesc = inputDesc.value;
+  const valuePhoto = inputPhoto.value;
+  const valueName = inputName.value;
+
+  if (valueDesc === '' || valuePhoto === '' || valueName === '') {
+    //completa el código
+
+    labelMessageError.innerHTML = "¡Uy! parece que has olvidado algo";
+
+  } else {
+    //completa el código
+
+
+  }
+
+})
