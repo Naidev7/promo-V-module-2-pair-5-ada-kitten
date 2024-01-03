@@ -23,7 +23,7 @@ const kittenOne = `<li class="card">
 </article>
 </li>`;
 
-console.log(kittenOne);
+
 
 
 /*CAT 2*/
@@ -102,6 +102,22 @@ const labelMessageError = document.querySelector('.js-label-error');
 const inputRace = document.querySelector('.js-input-race');
 
 
+function renderKitten(inputUrl, inputDesc, inputName, inputRace) {
+  //completa el código
+  catList.innerHTML += `<li class="card">
+                        <img
+                          class="card_img"
+                          src=${inputUrl}
+                          alt="sphynx-cat"
+                        />
+                        <h3 class="card_title">${inputName}</h3>
+                        <h4 class="card_race">${inputRace}</h4>
+                        <p class="card_description">
+                          ${inputDesc}
+                        </p>
+                        </li>` ;
+}
+
 
 //función para el desplegable del botón + //
 function addNewKitten(event) {
@@ -120,15 +136,15 @@ function addNewKitten(event) {
 
     labelMessageError.innerHTML = '¡Uy! parece que has olvidado algo';
 
-  }/*else {
+  } else {
 
-    function renderKitten(url, desc, name, race) {
-      //completa el código
-    }*/
+    //invocación de la función renderKitten
+    renderKitten(valueUrl, valueDesc, valueRace, valueName)
 
+    labelMessageError.innerHTML = '¡Gracias! Tu gatito ha sido añadido';
 
+  }
 }
-
 
 
 btnAdd.addEventListener('click', addNewKitten);
@@ -139,7 +155,6 @@ const linkNewFormElement = document.querySelector('.js-ulForm');
 const newFormElement = document.querySelector('.newFormElement');
 
 function handleClickNewCatForm(event) {
-
   event.preventDefault();
   if (newFormElement.classList.contains('collapsed')) {
     newFormElement.classList.remove('collapsed')
