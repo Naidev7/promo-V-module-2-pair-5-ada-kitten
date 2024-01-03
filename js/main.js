@@ -23,7 +23,7 @@ const kittenOne = `<li class="card">
 </article>
 </li>`;
 
-console.log(kittenOne);
+
 
 
 /*CAT 2*/
@@ -101,8 +101,7 @@ const inputName = document.querySelector('.js-input-name');
 const labelMessageError = document.querySelector('.js-label-error');
 
 
-btnAdd.addEventListener('click', (event) => {
-
+function addNewKitten(event) {
   event.preventDefault();
   console.log(event);
 
@@ -111,14 +110,24 @@ btnAdd.addEventListener('click', (event) => {
   const valueName = inputName.value;
 
   if (valueDesc === '' || valuePhoto === '' || valueName === '') {
-    //completa el código
-
     labelMessageError.innerHTML = "¡Uy! parece que has olvidado algo";
+  } 
+}
 
+btnAdd.addEventListener('click', addNewKitten);
+
+//variable del icono del btn//
+const linkNewFormElement = document.querySelector('.js-ulForm');
+// variable del form//
+const newFormElement = document.querySelector('.newFormElement');
+
+function handleClickNewCatForm(event) {
+  event.preventDefault();
+  if (newFormElement.classList.contains('collapsed')) {
+    newFormElement.classList.remove('collapsed')
   } else {
-    //completa el código
-
-
+    newFormElement.classList.add('collapsed')
   }
+};
 
-})
+linkNewFormElement.addEventListener("click",handleClickNewCatForm);
