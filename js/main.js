@@ -96,29 +96,58 @@ const btnAdd = document.querySelector(".js-btn-add");
 //declarar constantes del formulario ya que hasta no dar click en el boton no aparece el formularo de nuevo gatito
 
 const inputDesc = document.querySelector('.js-input-desc');
-const inputPhoto = document.querySelector('.js-input-photo');
+const inputUrl = document.querySelector('.js-input-url');
 const inputName = document.querySelector('.js-input-name');
 const labelMessageError = document.querySelector('.js-label-error');
+const inputRace = document.querySelector('.js-input-race');
 
 
-btnAdd.addEventListener('click', (event) => {
 
-  event.preventDefault();
+//función para el desplegable del botón + //
+function addNewKitten(event) {
+
+  event.preventDefault(); //sirve para evitar que el formulario se resetee cuando le damos a enviar si hay algo que falta (para no perder todo)
   console.log(event);
 
+  const valueUrl = inputUrl.value;
   const valueDesc = inputDesc.value;
-  const valuePhoto = inputPhoto.value;
+  const valueRace = inputRace.value;
   const valueName = inputName.value;
 
-  if (valueDesc === '' || valuePhoto === '' || valueName === '') {
-    //completa el código
 
-    labelMessageError.innerHTML = "¡Uy! parece que has olvidado algo";
+  if (valueUrl === '' || valueDesc === '' || valueName === '' || valueRace === '') {
 
+
+    labelMessageError.innerHTML = '¡Uy! parece que has olvidado algo';
+
+  }/*else {
+
+    function renderKitten(url, desc, name, race) {
+      //completa el código
+    }*/
+
+
+}
+
+
+
+btnAdd.addEventListener('click', addNewKitten);
+
+//variable del icono del btn//
+const linkNewFormElement = document.querySelector('.js-ulForm');
+// variable del form//
+const newFormElement = document.querySelector('.newFormElement');
+
+function handleClickNewCatForm(event) {
+
+  event.preventDefault();
+  if (newFormElement.classList.contains('collapsed')) {
+    newFormElement.classList.remove('collapsed')
   } else {
-    //completa el código
-
-
+    newFormElement.classList.add('collapsed')
   }
+};
 
-})
+
+linkNewFormElement.addEventListener('click', handleClickNewCatForm);
+//función para nuevo gatito RENDERIZADA
