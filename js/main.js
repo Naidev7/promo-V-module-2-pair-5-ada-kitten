@@ -171,25 +171,33 @@ const input_search_race = document.querySelector(".js_in_search_race");
 
 
 
-function filterKitten (event) {
+function filterKitten(event) {
   event.preventDefault();
   const descrSearchText = input_search_desc.value;
   const descrSearchRace = input_search_race.value;
-  catList.innerHTML ='';
+  catList.innerHTML = '';
+  // la función includes() siempre incluirá los casos vacíos
 
-  if (kittenOneDesc.includes(descrSearchText) || kittenOneRace.includes(descrSearchRace) ) {
-    catList.innerHTML+= kittenOne;
-    console.log(descrSearchText);
-  }
-
-  if (kittenTwoDesc.includes(descrSearchText)|| kittenTwoRace.includes(descrSearchRace) ) {
-    catList.innerHTML += kittenTwo;
-  }
-
-  if (kittenThreeDesc.includes(descrSearchText)|| kittenThreeRace.includes(descrSearchRace) ) {
-    catList.innerHTML += kittenThree;
-  }else{
+  if (!descrSearchText && !descrSearchRace) {
     catList.innerHTML = 'No hay gatitos disponibles';
+  }
+
+  else {
+
+    if (kittenOneDesc.includes(descrSearchText.toLowerCase()) || kittenOneRace === descrSearchRace) {
+      catList.innerHTML += kittenOne;
+      console.log(catList);
+    }
+
+    if (kittenTwoDesc.includes(descrSearchText.toLowerCase()) || kittenTwoRace === descrSearchRace) {
+      catList.innerHTML += kittenTwo;
+      console.log(descrSearchText, descrSearchRace, 'gato calvo');
+    }
+
+    if (kittenThreeDesc.includes(descrSearchText.toLowerCase()) || kittenThreeRace === descrSearchRace) {
+      catList.innerHTML += kittenThree;
+
+    }
   }
 };
 
